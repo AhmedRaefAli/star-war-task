@@ -41,16 +41,17 @@ const getAllData = async (req, res, next) => {
         const planets  = await Promise.all(PlanetsNames);
 
         let result = [];
-        for (let i =0; i<usersData.length;i++){
-            result[i]={
-                characterName:usersData[i].name,
-                gender:usersData[i].gender,
-                species:species[i],
-                films:films[i],
-                homePlanet:planets[i],
-                averageLifespan:usersData[i].birth_year
-            }
-        }
+        await usersData.forEach((item,index)=> {
+            return result.push({
+                characterName:item.name,
+                gender:item.gender,
+                species:species[index],
+                films:films[index],
+                homePlanet:planets[index],
+                averageLifespan:item.birth_year
+            });
+            
+        });
         const RangeTime =  Date.now()-startTime;
         res.status(200).json({result :result ,RangeTime:RangeTime});
         }catch (err) {
