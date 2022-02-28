@@ -42,7 +42,7 @@ const getAllData = async (req, res, next) => {
 
         let result = [];
         await usersData.forEach((item,index)=> {
-            return result.push({
+            result.push({
                 characterName:item.name,
                 gender:item.gender,
                 species:species[index],
