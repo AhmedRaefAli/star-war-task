@@ -2,7 +2,7 @@
 version: '3'
 services:
   star-wars-image:
-    image: 183027326420.dkr.ecr.us-east-2.amazonaws.com/star-wars-image
+    image: 183027326420.dkr.ecr.us-east-2.amazonaws.com/star-wars-image:latest
     ports:
     - 3000:3000
     container_name: my-app
